@@ -79,11 +79,17 @@ export default class Layout extends Component {
                 // eslint-disable-next-line
                 var total = calculateHistoryCost(trans);
                 history_return = history_return + total[0];
-                historyStock.push(
+                
+                historyStock.unshift(
                     <HistTrans key={"hist_" + key}
                         symbol={symbol}
                         total_return={total[0]}
                         pct_return={total[1]} />
+                // historyStock.push(
+                //     <HistTrans key={"hist_" + key}
+                //         symbol={symbol}
+                //         total_return={total[0]}
+                //         pct_return={total[1]} />
                 )
             }
         }

@@ -80,7 +80,7 @@ export default class Layout extends Component {
                 total = calculateHistoryCost(trans);
                 total_return = total[0]*100;
                 history_return += total_return;
-                historyOption.push(
+                historyOption.unshift(
                     <HistTrans key={"hist_" + key}
                                 symbol={symbol}
                                 total_return={total_return}
