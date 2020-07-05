@@ -1,0 +1,86 @@
+body{
+    background-color: #040d14;
+    color: #fff;
+}
+.card{
+    border: 1px solid #40494e;
+    background-color: #040d14;
+    
+}
+.header{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #fff;
+    background-color: #040d14;
+    text-align: left;
+}
+.accordion{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+footer{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #fff;
+    background-color: #040d14;
+    text-align: left;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.collapse{
+    border: 1px solid #40494e;
+}
+.form-control{
+    background-color: #040d14;
+}
+.row{
+    margin:0;
+}
+nav{
+    display:flex;
+    justify-content: space-around;
+    width:40%;
+    float:right;
+}
+.nav-links{
+    display:flex;
+    justify-content: space-around;
+    width:40%;
+    align-items: center;
+    list-style: none;
+}
+/* .infoRow > .col{
+    height: 30px;
+    padding: 0.05rem 0.75rem
+} */
+a{
+    color: #fff;
+}
+a:hover{
+    color: red;
+}
+
+hr{
+    background-color: #fff;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
