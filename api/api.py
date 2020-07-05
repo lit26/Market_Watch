@@ -97,9 +97,9 @@ def update_tran(tran_id):
 def option_all():
 	return jsonify(option_data)
 
-@app.route('/api/option/<int:option_id>', methods=['GET'])
-def option_id(option_id):
-    trans = [trans for trans in option_data if trans['id'] == option_id]
+@app.route('/api/option/<int:tran_id>', methods=['GET'])
+def option_id(tran_id):
+    trans = [trans for trans in option_data if trans['id'] == tran_id]
     if len(trans) == 0:
         abort(404)
     return jsonify(trans)
