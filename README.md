@@ -1,8 +1,14 @@
 # Personal_Market_Watch
 
+## Screenshot
+
+![stock](asset/stock.png)
+![option](asset/option.png)
+
 ## Website
 
 Front-end React.js website for display personal portfolio (stock & option).
+
 
 ## API
 
