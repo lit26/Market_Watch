@@ -1,10 +1,5 @@
 # Personal_Market_Watch
 
-## Screenshot
-
-![stock](asset/stock.png)
-![option](asset/option.png)
-
 ## Website
 
 Front-end React.js website for display personal portfolio (stock & option).
@@ -28,3 +23,8 @@ Back-end Python Flask API for storing stock and option portfolio.
 ## Running
 
 For local run, React.js website normally run on http://localhost:3000 and Python Flask API run on http://localhost:5000 which will cause CORS errors, the project has already handle this by adding proxy in React.js package.json. 
+
+## Screenshot
+
+![stock](asset/stock.png)
+![option](asset/option.png)
