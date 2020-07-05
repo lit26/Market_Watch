@@ -2,18 +2,22 @@
 
 ## Website
 
-Front-end React.js website for display personal stock portfolio.
+Front-end React.js website for display personal portfolio (stock & option).
 
 ## API
 
-Back-end Python Flask API for storing stock portfolio.
+Back-end Python Flask API for storing stock and option portfolio.
 
 | HTTP Method | URI | Action|
 | ------------- | ------------- | ------------- |
-| GET | http://[hostname]/api/history/all | get all the transactions |
-| GET | http://[hostname]/api/history/[transaction_id] | get a transaction |
-| POST | http://[hostname]/api/history/transaction | Create a new transaction |
-| POST | http://[hostname]/api/history/transaction/[transaction_id] | Update an existing transaction |
+| GET | http://[hostname]/api/history/all | get all the stock transactions |
+| GET | http://[hostname]/api/history/[transaction_id] | get a stock transaction |
+| POST | http://[hostname]/api/history/transaction | Create a new stock transaction |
+| POST | http://[hostname]/api/history/transaction/[transaction_id] | Update an existing stock transaction 
+| GET | http://[hostname]/api/option/all | get all the option transactions |
+| GET | http://[hostname]/api/option/[transaction_id] | get a option transaction |
+| POST | http://[hostname]/api/option/transaction | Create a new option transaction |
+| POST | http://[hostname]/api/option/transaction/[transaction_id] | Update an existing option transaction 
 
 ## Running
 
