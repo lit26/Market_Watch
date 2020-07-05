@@ -50,10 +50,10 @@ nav{
     align-items: center;
     list-style: none;
 }
-/* .infoRow > .col{
-    height: 30px;
-    padding: 0.05rem 0.75rem
-} */
+.modal-content{
+    background-color: #333;
+}
+
 a{
     color: #fff;
 }

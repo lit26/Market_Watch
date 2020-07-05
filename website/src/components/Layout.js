@@ -3,7 +3,7 @@ import { Container, Row, Col, Accordion, Card } from 'react-bootstrap';
 import CardHeader from './trans_card/CardHeader'
 import CardBody from './trans_card/CardBody'
 import HistTrans from './trans_card/HistTrans'
-import BuyNew from './trans_card/BuyNew'
+import BuyNewModal from './trans_card/BuyNewModal'
 import { calculateQuantity, calculateCurrentCost, calculateHistoryCost } from './calculateCost'
 import axios from 'axios'
 
@@ -31,7 +31,7 @@ export default class Layout extends Component {
     render() {
         var winHeight = window.innerHeight;
         var colStyle1 = {
-            height: (winHeight-400)+"px",
+            height: (winHeight-350)+"px",
             overflowY: "auto"
         }
         var colStyle2 = {
@@ -85,11 +85,6 @@ export default class Layout extends Component {
                         symbol={symbol}
                         total_return={total[0]}
                         pct_return={total[1]} />
-                // historyStock.push(
-                //     <HistTrans key={"hist_" + key}
-                //         symbol={symbol}
-                //         total_return={total[0]}
-                //         pct_return={total[1]} />
                 )
             }
         }
@@ -99,12 +94,12 @@ export default class Layout extends Component {
                 <Row>
                     <Col sm={9} >
                         <h4>Current</h4>
-                        <BuyNew />
                         <Accordion className="dataCol" style={colStyle1}>
                             {currentStockCards}
                         </Accordion>
                     </Col>
                     <Col sm={3}>
+                        <BuyNewModal />
                         <h4>History</h4>
                         <div className="dataCol" style={colStyle2}>
                             {historyStock}
