@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Accordion, Card } from 'react-bootstrap';
+import { Container, Row, Col, Accordion, Card, Button } from 'react-bootstrap';
 import CardHeader from './trans_card/CardHeader'
 import CardBody from './trans_card/CardBody'
 import HistTrans from './trans_card/HistTrans'
@@ -26,6 +26,19 @@ export default class Layout extends Component {
             .catch((error) => {
                 console.log(error)
             });
+    }
+    
+    handleClick = event =>{
+        event.preventDefault()
+        axios.get('/api/history/update')
+            .then((response) => {
+                console.log(response)
+                window.location.reload(false);
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+
     }
 
     render() {
@@ -63,6 +76,7 @@ export default class Layout extends Component {
                                 total={current_total}
                                 current={current_price}
                                 avg_cost={avg_price}
+                                quantity={quantity}
                                 total_return={total_return}
                                 pct_return={pct_return} />
                         </Accordion.Toggle>
@@ -93,7 +107,7 @@ export default class Layout extends Component {
             <Container style={{minHeight: '480px', textAlign: 'left', fontSize:'13px' }}>
                 <Row>
                     <Col sm={9} >
-                        <h4>Current</h4>
+                        <h4>Current</h4><Button variant="link" onClick={this.handleClick}>Update</Button>
                         <Accordion className="dataCol" style={colStyle1}>
                             {currentStockCards}
                         </Accordion>

@@ -62,6 +62,7 @@ export default class Layout extends Component {
                            <CardHeader symbol={symbol}
                                  current={current_price}
                                  avg_cost={avg_price}
+                                 quantity={quantity}
                                  type={currentOptionHolding.type}
                                  total_return={total_return}
                                  pct_return={pct_return} />

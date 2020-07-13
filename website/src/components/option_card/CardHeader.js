@@ -17,14 +17,16 @@ function CardHeader(props) {
                 <Col>Symbol</Col>
                 <Col>Current</Col>
                 <Col>Average Cost</Col>
+                <Col>Quantity</Col>
                 <Col>Type</Col>
                 <Col>Return</Col>
                 <Col>Pct</Col>
             </Row>
             <Row>
                 <Col>{props.symbol}</Col>
-                <Col>${props.current}</Col>
+                <Col>${props.current.toFixed(2)}</Col>
                 <Col>${props.avg_cost.toFixed(2)}</Col>
+                <Col>{props.quantity}</Col>
                 <Col>{props.type}</Col>
                 <Col style={price_color}>${total_return.toFixed(2)}</Col>
                 <Col style={price_color}>{pct_return.toFixed(2)}%</Col>

@@ -24,11 +24,13 @@ def writeJSON(outputFile, data):
 api_data = loadJSON(data_file)
 option_data = loadJSON(option_file)
 crumbs = webdata.get_crumbs()
-
+open_stocks = {}
 for i,trans in enumerate(api_data):
 	if api_data[i]['status'] == 'Open':
 		stock = api_data[i]['stock']
+		open_stocks[i] = stock
 		api_data[i]['current'] = webdata.getRegularMarketData(stock, crumbs)
+writeJSON(data_file, api_data)
 
 @app.route('/', methods=['GET'])
 def home():
@@ -93,13 +95,21 @@ def update_tran(tran_id):
 	writeJSON(data_file, api_data)
 	return jsonify({'result': True})
 
+@app.route('/api/history/update', methods=['GET'])
+def update_current_price():
+	for index in open_stocks:
+		stock = open_stocks[index]
+		api_data[index]['current'] = webdata.getRegularMarketData(stock, crumbs)
+	writeJSON(data_file, api_data)
+	return jsonify({'result': True})
+
 @app.route('/api/option/all', methods=['GET'])
 def option_all():
 	return jsonify(option_data)
 
-@app.route('/api/option/<int:tran_id>', methods=['GET'])
-def option_id(tran_id):
-    trans = [trans for trans in option_data if trans['id'] == tran_id]
+@app.route('/api/option/<int:option_id>', methods=['GET'])
+def option_id(option_id):
+    trans = [trans for trans in option_data if trans['id'] == option_id]
     if len(trans) == 0:
         abort(404)
     return jsonify(trans)
