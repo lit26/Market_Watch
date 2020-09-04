@@ -2,6 +2,10 @@ body{
     background-color: #040d14;
     color: #fff;
 }
+.main_content{
+    height:80vh;
+    border:1px white solid
+}
 .card{
     border: 1px solid #40494e;
     background-color: #040d14;
@@ -53,16 +57,16 @@ nav{
 .modal-content{
     background-color: #333;
 }
-
-a{
-    color: #fff;
-}
-a:hover{
-    color: red;
+.body_header_row{
+    display: flex;
+    align-items: baseline;
 }
 
-hr{
-    background-color: #fff;
+.update_button{
+    color:gray;
+}
+.update_button:hover{
+    text-decoration: none;
 }
 
 /* width */

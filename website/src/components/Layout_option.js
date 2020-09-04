@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Accordion, Card } from 'react-bootstrap';
+import {Accordion, Card } from 'react-bootstrap';
 import CardHeader from './option_card/CardHeader'
 import CardBody from './option_card/CardBody'
 import HistTrans from './trans_card/HistTrans'
 import NewOptionTradeModal from './option_card/NewOptionTradeModal'
 import { calculateQuantity, calculateCurrentCost, calculateHistoryCost } from './calculateCost'
 import axios from 'axios'
+import './Layout.css'
 
 export default class Layout extends Component {
     constructor(props) {
@@ -29,15 +30,6 @@ export default class Layout extends Component {
     }
 
     render() {
-        var winHeight = window.innerHeight;
-        var colStyle1 = {
-            height: (winHeight-350)+"px",
-            overflowY: "auto"
-        }
-        var colStyle2 = {
-            height: (winHeight-350)+"px",
-            overflow: "auto"
-        }
         var currentOptionCards = [];
         var historyOption = [];
         var option_history = this.state.option_history;
@@ -55,6 +47,8 @@ export default class Layout extends Component {
                 var avg_price = total / quantity;
                 var pct_return = (current_price - avg_price) / avg_price;
                 var total_return = (current_price - avg_price) * quantity * 100;
+                var strikePrice = currentOptionHolding.strikeprice;
+                var expireDate = currentOptionHolding.expiredate;
                 current_return = current_return + total_return;
                 currentOptionCards.push(
                     <Card key={key}>
@@ -72,7 +66,13 @@ export default class Layout extends Component {
                             <CardBody trans_id={currentOptionHolding.id}
                                     current={current_price}
                                     total={current_price*quantity}
-                                    symbol={symbol} transactions={trans} />
+                                    symbol={symbol} 
+                                    transactions={trans} 
+                                    avg_cost={avg_price}
+                                    quantity={quantity} 
+                                    type={currentOptionHolding.type}
+                                    strikePrice={strikePrice}
+                                    expireDate={expireDate}/>
                             </Card.Body>
                          </Accordion.Collapse>
                     </Card>
@@ -91,32 +91,31 @@ export default class Layout extends Component {
         }
 
         return (
-            <Container style={{minHeight: '480px', textAlign: 'left', fontSize:'13px' }}>
-                <Row>
-                    <Col sm={9} >
-                        <h4>Current</h4>
-                        <Accordion className="dataCol" style={colStyle1}>
+            <div className="page">
+                <div className="data_table">
+                    <div className="data__left">
+                        <div className='body_header_row'>
+                            <div><h4>Current</h4></div>
+                            
+                        </div>
+
+                        <Accordion className="dataCol_left">
                             {currentOptionCards}
                         </Accordion>
-                    </Col>
-                    <Col sm={3}>
+                    </div>
+                    <div className="data__right">
                         <NewOptionTradeModal />
                         <h4>History</h4>
-                        <div className="dataCol" style={colStyle2}>
+                        <div className="dataCol_right">
                             {historyOption}
                         </div>
-                        
-                    </Col>
-                </Row>
-                <Row style={{textAlign:'right'}}>
-                    <Col sm={9}>
-                        <h6>Current: ${current_return.toFixed(2)}</h6>
-                    </Col>
-                    <Col sm={3}>
-                        <h6>Total: ${history_return.toFixed(2)}</h6>
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
+                </div>
+                <div className="summary">
+                    <div className="data__left">Current: ${current_return.toFixed(2)}</div>
+                    <div className="data__right">Total: ${history_return.toFixed(2)}</div>
+                </div>
+            </div>
 
         )
     }

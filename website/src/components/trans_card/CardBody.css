@@ -1,0 +1,44 @@
+.transCard__formRow{
+    display: flex;
+    margin: 0px 30px;
+}
+
+.currentInput{
+    height: 23px;
+}
+button.currentInput{
+    padding: 0px 11px !important;
+}
+.transCard__dataTableDate{
+    flex:0.3;
+}
+.transCard__dataTableDate> div> input{
+    max-width:172px;
+}
+.transCard__dataTablePrice{
+    flex:0.2;
+}
+.transCard__dataTablePrice > div> input{
+    max-width: 110px;
+}
+.transCard__dataTableQuantity{
+    flex:0.2;
+}
+.transCard__dataTableQuantity > div> input{
+    max-width: 110px;
+}
+.transCard__dataTableTotal{
+    flex:0.2;
+}
+.transCard__dataTableTotal > div> select{
+    max-width: 110px;
+}
+.transCard__dataTableAdd{
+    flex:0.1;
+}
+.transCard__formRow{
+    display:flex;
+}
+.stockAdd>div{
+    padding-right: 10px;
+}

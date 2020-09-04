@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Accordion, Card, Button } from 'react-bootstrap';
+import {Accordion, Card, Button } from 'react-bootstrap';
 import CardHeader from './trans_card/CardHeader'
 import CardBody from './trans_card/CardBody'
 import HistTrans from './trans_card/HistTrans'
 import BuyNewModal from './trans_card/BuyNewModal'
 import { calculateQuantity, calculateCurrentCost, calculateHistoryCost } from './calculateCost'
 import axios from 'axios'
+import './Layout.css'
 
 export default class Layout extends Component {
     constructor(props) {
@@ -27,8 +28,8 @@ export default class Layout extends Component {
                 console.log(error)
             });
     }
-    
-    handleClick = event =>{
+
+    handleClick = event => {
         event.preventDefault()
         axios.get('/api/history/update')
             .then((response) => {
@@ -42,15 +43,6 @@ export default class Layout extends Component {
     }
 
     render() {
-        var winHeight = window.innerHeight;
-        var colStyle1 = {
-            height: (winHeight-350)+"px",
-            overflowY: "auto"
-        }
-        var colStyle2 = {
-            height: (winHeight-350)+"px",
-            overflow: "auto"
-        }
         var currentStockCards = [];
         var historyStock = [];
         var stock_history = this.state.stock_history;
@@ -93,7 +85,7 @@ export default class Layout extends Component {
                 // eslint-disable-next-line
                 var total = calculateHistoryCost(trans);
                 history_return = history_return + total[0];
-                
+
                 historyStock.unshift(
                     <HistTrans key={"hist_" + key}
                         symbol={symbol}
@@ -104,33 +96,33 @@ export default class Layout extends Component {
         }
 
         return (
-            <Container style={{minHeight: '480px', textAlign: 'left', fontSize:'13px' }}>
-                <Row>
-                    <Col sm={9} >
-                        <h4>Current</h4><Button variant="link" onClick={this.handleClick}>Update</Button>
-                        <Accordion className="dataCol" style={colStyle1}>
+            <div className="page">
+                <div className="data_table">
+                    <div className="data__left">
+                        <div className='body_header_row'>
+                            <div><h4>Current</h4></div>
+                            <div>
+                                <Button className="update_button" variant="link" onClick={this.handleClick}>Update</Button>
+                            </div>
+                        </div>
+
+                        <Accordion className="dataCol_left">
                             {currentStockCards}
                         </Accordion>
-                    </Col>
-                    <Col sm={3}>
+                    </div>
+                    <div className="data__right">
                         <BuyNewModal />
                         <h4>History</h4>
-                        <div className="dataCol" style={colStyle2}>
+                        <div className="dataCol_right">
                             {historyStock}
                         </div>
-                        
-                    </Col>
-                </Row>
-                <Row style={{textAlign:'right'}}>
-                    <Col sm={9}>
-                        <h6>Current: ${current_return.toFixed(2)}</h6>
-                    </Col>
-                    <Col sm={3}>
-                        <h6>Total: ${history_return.toFixed(2)}</h6>
-                    </Col>
-                </Row>
-            </Container>
-
+                    </div>
+                </div>
+                <div className="summary">
+                    <div className="data__left">Current: ${current_return.toFixed(2)}</div>
+                    <div className="data__right">Total: ${history_return.toFixed(2)}</div>
+                </div>
+            </div>
         )
     }
 

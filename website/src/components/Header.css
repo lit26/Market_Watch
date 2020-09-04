@@ -1,0 +1,18 @@
+.header{
+    display:flex;
+    justify-content: space-between;
+    margin:0px 30px;
+    padding:18px 10px;
+}
+.header__right{
+    
+    display:flex;
+}
+.header__right > a{
+    padding:10px;
+    color:white;
+    text-decoration: none;
+}
+.header__right > a:hover{
+    color: red;
+}

@@ -1,0 +1,30 @@
+.page{
+    /* height: 80vh; */
+    margin:0 70px;
+}
+.data_table{
+    height: 79vh;
+    display:flex;
+    text-align:left;
+}
+.summary{
+    text-align: right;
+    display:flex;
+}
+.data__left{
+    flex:0.75;
+    margin-right:15px;
+    min-width: 650px;
+}
+.data__right{
+    flex:0.25;
+    min-width: 240px;
+}
+.dataCol_left{
+    height: 72vh;
+    overflow-y: auto;
+}
+.dataCol_right{
+    height: 67vh;
+    overflow-y: auto;
+}

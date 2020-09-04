@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import { Container, Row, Col, Form, Button} from 'react-bootstrap';
+import {Form, Button} from 'react-bootstrap';
 import axios from 'axios';
+import './CardBody.css'
 
 export default class CardBody extends Component {
     constructor(props){
@@ -80,60 +81,89 @@ export default class CardBody extends Component {
                 total = -total
             }
             trans.push(
-                <Row key={this.props.symbol+"_"+i}>
-                    <Col xs={4}>{transactions[i].date}</Col>
-                    <Col xs={2}>${transactions[i].price.toFixed(2)}</Col>
-                    <Col xs={2}>{transactions[i].quantity}</Col>
-                    <Col xs={2}>${total.toFixed(2)}</Col>
-                    <Col ></Col>
-                </Row>
+                <div className="transCard__formRow">
+                    <div className="transCard__dataTableDate">
+                        <div>{transactions[i].date}</div>
+                    </div>
+                    <div className="transCard__dataTablePrice">
+                        <div>${transactions[i].price.toFixed(2)}</div>
+                    </div>
+                    <div className="transCard__dataTableQuantity">
+                        <div>{transactions[i].quantity}</div>
+                    </div>
+                    <div className="transCard__dataTableTotal">
+                        <div>${total.toFixed(2)}</div>
+                    </div>
+                    <div className="transCard__dataTableAdd">
+                        <div></div>
+                    </div>
+                </div>
                 )
         }
         var trans_id = this.props.trans_id;
         return (
-            <Container>
-                <Row>
-                    <Col xs={4}>Date</Col>
-                    <Col xs={2}>Price</Col>
-                    <Col xs={2}>Quantity</Col>
-                    <Col xs={2}>Total</Col>
-                    <Col></Col>
-                </Row>
-                {trans}
-                
-                <Form name={'addtrade_'+trans_id}
-                      onSubmit={this.handleSubmit} >
-                    <Row>
-                        <Col xs={4}>
-                        <Form.Control name={'date_'+trans_id} 
-                                    type='date' 
-                                    onChange={this.handleChange}/>
-                        </Col>
-                        <Col xs={2}>
-                        <Form.Control name={'price_'+trans_id} 
+            <div className="transCard__body">
+            <Form name={'addtrade_' + trans_id}
+                    onSubmit={this.handleSubmit} >
+                    <div className="transCard__formRow">
+                        <div className="transCard__dataTableDate">
+                            <div><strong>Date</strong></div>
+                        </div>
+                        <div className="transCard__dataTablePrice">
+                            <div><strong>Price</strong></div>
+                        </div>
+                        <div className="transCard__dataTableQuantity">
+                            <div><strong>Quantity</strong></div>
+                        </div>
+                        <div className="transCard__dataTableTotal">
+                            <div><strong>Total</strong></div>
+                        </div>
+                        <div className="transCard__dataTableAdd">
+                            <div></div>
+                        </div>
+                    </div>
+                    {trans}
+                    <div className="transCard__formRow">
+                        <div className="transCard__dataTableDate stockAdd">
+                            <div>
+                                <Form.Control name={'date_' + trans_id}
+                                    type='date'
+                                    onChange={this.handleChange} />
+                            </div>
+                        </div>
+                        <div className="transCard__dataTablePrice stockAdd">
+                            <div>
+                                <Form.Control name={'price_' + trans_id}
                                     type='text'
-                                    onChange={this.handleChange}/>
-                        </Col>
-                        <Col xs={2}>
-                        <Form.Control name={'quantity_'+trans_id} 
+                                    onChange={this.handleChange} />
+                            </div>
+                        </div>
+                        <div className="transCard__dataTableQuantity stockAdd">
+                            <div>
+                                <Form.Control name={'quantity_' + trans_id}
                                     type='text'
-                                    onChange={this.handleChange}/>
-                        </Col>
-                        <Col xs={2}>
-                        <Form.Control as="select" 
-                                    name={'type_'+trans_id}
+                                    onChange={this.handleChange} />
+                            </div>
+                        </div>
+                        <div className="transCard__dataTableTotal stockAdd">
+                            <div>
+                                <Form.Control as="select"
+                                    name={'type_' + trans_id}
                                     onChange={this.handleChange}>
-                            <option value='null'>Choose</option>
-                            <option value='Buy'>Buy</option>
-                            <option value='Sell'>Sell</option>
-                        </Form.Control>
-                        </Col>
-                        <Col>
-                        <Button variant="secondary" type="submit">Add</Button> 
-                        </Col>
-                    </Row>
+                                    <option value='null'>Choose</option>
+                                    <option value='Buy'>Buy</option>
+                                    <option value='Sell'>Sell</option>
+                                </Form.Control>
+                            </div>
+                        </div>
+                        <div className="transCard__dataTableAdd stockAdd">
+                            <div>
+                                <Button variant="secondary" type="submit">Add</Button>
+                            </div>
+                        </div>
+                    </div>
                 </Form>
-            </Container>
+            </div>
         );
     }
 }

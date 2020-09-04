@@ -16,7 +16,9 @@ export default class NewOptionTradeModal extends Component {
             'buySell': '',
             'price': '',
             'quantity': '',
-            'type': ''
+            'type': '',
+            'strikeprice': '',
+            'expiredate': ''
         };
     }
 
@@ -38,16 +40,18 @@ export default class NewOptionTradeModal extends Component {
                 'quantity': parseFloat(this.state.quantity),
                 'type': this.state.buySell
             }],
-            'type': this.state.type
+            'type': this.state.type,
+            'strikeprice': parseFloat(this.state.strikeprice),
+            'expiredate': this.state.expiredate
         }
         axios.post('/api/option/transaction', postTrans)
-        .then(response => {
-            console.log(response);
-            window.location.reload(false);
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+            .then(response => {
+                console.log(response);
+                window.location.reload(false);
+            })
+            .catch(error =>{
+                console.log(error)
+            })
         this.setState({
             show: false,
             'date': '',
@@ -55,7 +59,9 @@ export default class NewOptionTradeModal extends Component {
             'buySell': '',
             'price': '',
             'quantity': '',
-            'type': ''
+            'type': '',
+            'strikeprice': '',
+            'expiredate':''
         })
     }
 
@@ -121,6 +127,18 @@ export default class NewOptionTradeModal extends Component {
                     <Form.Label>Type</Form.Label>
                     <Form.Control name="type"
                                 type="text" 
+                                onChange={this.handleChange}/>
+                </Form.Group>
+                <Form.Group controlId="formStrikePrice">
+                    <Form.Label>Strike Price</Form.Label>
+                    <Form.Control name="strikeprice"
+                                type="text" 
+                                onChange={this.handleChange}/>
+                </Form.Group>
+                <Form.Group controlId="formExpireDate">
+                    <Form.Label>Expiration Date</Form.Label>
+                    <Form.Control name="expiredate"
+                                type="date" 
                                 onChange={this.handleChange}/>
                 </Form.Group>
                 

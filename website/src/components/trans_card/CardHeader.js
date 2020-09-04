@@ -1,9 +1,8 @@
 import React from 'react'
 import { Container, Row, Col} from 'react-bootstrap';
 
-function CardHeader(props) {
-    var total_return = props.total_return;
-    var pct_return = props.pct_return*100;
+function CardHeader({symbol, current, avg_cost, quantity, total, total_return, pct_return}) {
+
     var price_color = {color:'#fff'};
     if(total_return>0){
         price_color = {color:'green'};
@@ -12,6 +11,7 @@ function CardHeader(props) {
     }
     
     return (
+        
         <Container>
             <Row>
                 <Col>Symbol</Col>
@@ -23,13 +23,13 @@ function CardHeader(props) {
                 <Col>Pct</Col>
             </Row>
             <Row>
-                <Col>{props.symbol}</Col>
-                <Col>${props.current.toFixed(2)}</Col>
-                <Col>${props.avg_cost.toFixed(2)}</Col>
-                <Col>{props.quantity}</Col>
-                <Col style={price_color}>${props.total.toFixed(2)}</Col>
+                <Col>{symbol}</Col>
+                <Col>${current.toFixed(2)}</Col>
+                <Col>${avg_cost.toFixed(2)}</Col>
+                <Col>{quantity}</Col>
+                <Col style={price_color}>${total.toFixed(2)}</Col>
                 <Col style={price_color}>${total_return.toFixed(2)}</Col>
-                <Col style={price_color}>{pct_return.toFixed(2)}%</Col>
+                <Col style={price_color}>{(pct_return*100).toFixed(2)}%</Col>
             </Row>
         </Container>
     );

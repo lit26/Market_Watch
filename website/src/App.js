@@ -9,16 +9,13 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import StockPage from './components/Layout'
 import OptionPage from './components/Layout_option'
-import Nav from './Nav'
 
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
-  var winHeight = window.innerHeight;
   return (
     <Router>
-    <div className="App" style={{height: winHeight}}>
-      <Nav />
+    <div className="App">
       <Header />
       <Switch>
         <Route path="/" exact component={StockPage} />
