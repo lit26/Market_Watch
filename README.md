@@ -18,7 +18,11 @@ Back-end Python Flask API for storing stock and option portfolio.
 | GET | http://[hostname]/api/option/all | get all the option transactions |
 | GET | http://[hostname]/api/option/[transaction_id] | get a option transaction |
 | POST | http://[hostname]/api/option/transaction | Create a new option transaction |
-| POST | http://[hostname]/api/option/transaction/[transaction_id] | Update an existing option transaction 
+| POST | http://[hostname]/api/option/transaction/[transaction_id] | Update an existing option transaction |
+| GET | http://[hostname]/api/tickercategory/ | Getting ticker list of charts |
+| GET | http://[hostname]/api/rehreshcharts | Refreshing charts | 
+| POST | http://[hostname]/api/delete_chart | Deleting chart at the backend | 
+
 
 ## Running
 
@@ -28,3 +32,4 @@ For local run, React.js website normally run on http://localhost:3000 and Python
 
 ![stock](asset/stock.png)
 ![option](asset/option.png)
+![watchlist](asset/watchlist.png)
