@@ -1,11 +1,11 @@
 .header{
     display:flex;
     justify-content: space-between;
-    margin:0px 30px;
-    padding:18px 10px;
+    padding:10px 30px;
+    align-items: center;
+    height:10vh;
 }
 .header__right{
-    
     display:flex;
 }
 .header__right > a{

@@ -1,9 +1,8 @@
 import React from 'react'
-import './Header.css'
 import {Link} from "react-router-dom";
+import './Header.css'
 
 function Header() {
-
     return (
         <div className="header">
             <div className="header__left">
@@ -15,6 +14,9 @@ function Header() {
                 </Link>
                 <Link to="/option">
                     <div>Option</div>
+                </Link>
+                <Link to="/watchlist">
+                    <div>Watchlist</div>
                 </Link>
             </div>
         </div>

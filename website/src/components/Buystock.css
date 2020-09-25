@@ -1,0 +1,13 @@
+.stockPage__header > button{
+    color:gray;
+}
+.stockPage__header > button:hover{
+    text-decoration: none;
+}
+.modal-content{
+    background-color:#333;
+    color: white;
+}
+.form-control{
+    background-color: #040d14;
+}

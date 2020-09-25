@@ -1,0 +1,21 @@
+.watchList .MuiSvgIcon-root{
+    height: 0.5em;
+    width: 0.5em;
+    flex: 0.2;
+}
+.watchListItem:hover{
+    cursor: pointer;
+    background-color:lightgray;
+    border-radius: 5px;
+    color: black;
+}
+.watchListItem > .MuiSvgIcon-root:hover{
+    color: red;
+}
+.watchListItem{
+    display: flex;
+    align-items: center;
+}
+.ticker{
+    flex: 0.8;
+}

@@ -1,0 +1,45 @@
+.stockPage{
+    padding: 2.5vh 50px;
+    height:80vh;
+}
+.stockPage__left{
+    flex:0.8;
+    margin-right:30px;
+}
+.stockPage__right{
+    flex:0.2;
+    overflow-y: auto;
+    min-width: 250px;
+}
+.stockPage__detail{
+    display:flex;
+    height:77vh;
+}
+.stockPage__summary{
+    display: flex;
+    height:5vh;
+    text-align: right;
+}
+.stockPage__dataTable{
+    height: 70vh;
+    overflow-y: auto;
+}
+.stockPage__summary > div >p{
+    margin:0px;
+}
+.stockPage__header{
+    display:flex;
+}
+.stockPage__updateButton{
+    color:gray;
+}
+.stockPage__updateButton:hover{
+    text-decoration: none;
+}
+.stockPage__dataTable button{
+    width:100%;
+    margin:10px;
+}
+.stockPage__history{
+    overflow-y: auto;
+}

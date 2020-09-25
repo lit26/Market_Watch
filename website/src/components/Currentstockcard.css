@@ -1,0 +1,8 @@
+.CurrentStockCard{
+    background-color: #040d14 !important;
+    border: 1px solid #40494e;
+}
+.CurrentStockCard__body{
+    border: 1px solid #40494e;
+    display: flex;
+}

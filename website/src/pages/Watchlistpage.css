@@ -1,0 +1,54 @@
+.analysisPage{
+    display: flex;
+}
+.stockCharts{
+    flex: 0.8;
+    margin:0px 50px;
+    text-align:left;
+}
+.stockCharts__refreshWarn{
+    position: relative;
+    background-color: rgb(255, 204, 0);
+    width:300px;
+    margin:auto;
+    text-align: center;
+    border-radius: 5px;
+    color:black;
+}
+
+.stockCharts__header{
+    display:flex;
+    align-items: center;
+}
+.stockCharts__header >h4{
+    margin-right:20px;
+}
+.stockCharts__slider{
+    width:100px !important;
+    margin-right:10px;
+}
+.stockCharts__rehresh{
+    width: 0.7em !important;
+    height: 0.7em !important;
+    cursor: pointer;
+}
+.stockChart{
+    display:flex;
+    flex-wrap:wrap;
+    height:75vh;
+    overflow-y: scroll;
+}
+.watchList{
+    flex: 0.2;
+    
+}
+.watchList__items{
+    height: 69vh;
+    overflow-y: auto;
+    text-align: left;
+    margin:5px 20px;
+}
+.watchList__category{
+    width:80%;
+    margin:10px;
+}

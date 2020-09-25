@@ -1,0 +1,13 @@
+.stockForm{
+    width:150px;
+    border: 1px solid #40494e;
+    padding: 15px;
+    border-radius: 5px;;
+}
+
+.stockForm input{
+    background-color: #040d14;
+}
+.stockForm select{
+    background-color: #040d14;
+}
