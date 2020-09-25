@@ -1,4 +1,4 @@
-# Personal_Market_Watch
+# Market_Watch
 
 ## Website
 
@@ -32,4 +32,7 @@ For local run, React.js website normally run on http://localhost:3000 and Python
 
 ![stock](asset/stock.png)
 ![option](asset/option.png)
+
+## Watchlist
+Watchlist will download charts from finvizfinance package. This will include personal watchlist and stock signal charts.
 ![watchlist](asset/watchlist.png)
